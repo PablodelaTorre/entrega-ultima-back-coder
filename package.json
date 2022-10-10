@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/PablodelaTorre/entrega-ultima-back-coder#readme",
   "dependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.3",
     "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
