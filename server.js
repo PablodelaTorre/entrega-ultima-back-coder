@@ -9,10 +9,6 @@ import { connectMongoDB } from "./src/config/configMongoDB.js";
 
 const app = express()
 
-const MONGO_USER = process.env.MONGO_USER;
-const MONGO_PASS = process.env.MONGO_PASS;
-const DB_NAME = process.env.DB_NAME;
-
 app.use(multer({
     dest:__dirname+"/public/files",
 
@@ -22,8 +18,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(__dirname + "/public"))
 
 app.use('/',routesMaster)
-
-
+app.set('views','./src/views')
+app.set('view engine','ejs')
 
 connectMongoDB();
 
