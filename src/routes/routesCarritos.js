@@ -43,7 +43,7 @@ carritosRouter.get('/:id/productos', async (req, res) => {
 carritosRouter.post('/:id/productos', async (req, res) => {
     try {
         const carrito = await api.getOne(req.params.id);
-        const productos = req.body; //Productos en formato de array de objetos 
+        const productos = req.body; //Productos en formato de array de objetos, cada uno con el id de productos. 
         if (carrito && productos) {
             const carritoUpdated = await api.addProductos(carrito, productos);
             const newCarrito = await api.getOne(carritoUpdated._id);
