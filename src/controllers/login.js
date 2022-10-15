@@ -1,4 +1,4 @@
-import { usuarios } from "../routes/registro.js";
+import { usuarios } from "../routes/routesRegistro.js";
 
 export function loginUsuario(req,res) {
     const {nombre, password} = req.body

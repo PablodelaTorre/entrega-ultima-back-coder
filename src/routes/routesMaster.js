@@ -2,9 +2,9 @@ import { Router } from "express";
 import productosRouter from "./routesProductos.js";
 import carritosRouter from "./routesCarritos.js";
 import appIndex from "./routesIndex.js";
-import registroRouter from "./routesRegistro"
-import loginRouter from "./routesLogin"
-import logoutRouter from "./routesLogout"
+import registroRouter from "./routesRegistro.js"
+import loginRouter from "./routesLogin.js"
+import logoutRouter from "./routesLogout.js"
 
 const appRouter = Router()
 
