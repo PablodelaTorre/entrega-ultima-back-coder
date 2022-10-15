@@ -2,12 +2,18 @@ import { Router } from "express";
 import productosRouter from "./routesProductos.js";
 import carritosRouter from "./routesCarritos.js";
 import appIndex from "./routesIndex.js";
+import registroRouter from "./routesRegistro"
+import loginRouter from "./routesLogin"
+import logoutRouter from "./routesLogout"
 
 const appRouter = Router()
 
 appRouter.use('/', appIndex)
 appRouter.use('/productos', productosRouter)
 appRouter.use('/carritos',carritosRouter)
+appRouter.use('/login',loginRouter)
+appRouter.use('/logout',logoutRouter)
+appRouter.use('/registro',registroRouter)
 
 // appRouter.get('/',(req,res)=>{
 //     res.send("funcionando")
