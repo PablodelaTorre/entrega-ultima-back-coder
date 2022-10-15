@@ -3,6 +3,7 @@ dotenv.config();
 let productosDao;
 let carritosDao;
 let usuariosDao;
+let mensajesDao;
 
 switch (process.env.DB_CONNECTION) {
     case "mongoDB":
@@ -11,6 +12,9 @@ switch (process.env.DB_CONNECTION) {
         });
         import("./carritos/MongoDBCarritos.js").then(({ MongoDBCarritos }) => {
             carritosDao = new MongoDBCarritos();
+        });
+        import("./mensajes/MongoDBMensajes.js").then(({ MongoDBMensajes }) => {
+            mensajesDao = new MongoDBMensajes();
         });
         import("./usuarios/MongoDBUsuarios.js").then(({ MongoDBUsuarios }) => {
             usuariosDao = new MongoDBUsuarios();
@@ -22,4 +26,4 @@ switch (process.env.DB_CONNECTION) {
     break;
 }
 
-export { productosDao, carritosDao, usuariosDao };
+export { productosDao, carritosDao, usuariosDao, mensajesDao };

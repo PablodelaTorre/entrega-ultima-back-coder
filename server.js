@@ -27,7 +27,6 @@ app.set('views','./src/views')
 app.set('view engine','ejs')
 
 //-------------------------------------------------- Socket io -----------------------------------------------
-
 export const mensajes = []
 
 io.on('connection',(socket)=>{
@@ -39,7 +38,6 @@ io.on('connection',(socket)=>{
         io.sockets.emit('mensajes',mensajes)
     })
 })
-
 
 connectMongoDB();
 

@@ -1,16 +1,27 @@
 import mongoose from "mongoose";
 
-export const MensajeSchema = new mongoose.Schema({
-    texto: {
+export const mensajesSchema = new mongoose.Schema({
+    mensaje: {
         type: String,
         required: true
     },
-    timestamp: {
+    mail: {
+        type: String,
+        required: true
+    },
+    nombre: {
+        type: String,
+        required: true
+    },
+    apellido: {
+        type: String,
+        required: true
+    },
+    edad: {
         type: Number,
         required: true
     },
-    autor: {
+    autores: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "usuarios"
     }
 });

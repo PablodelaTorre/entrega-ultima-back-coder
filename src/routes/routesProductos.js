@@ -1,5 +1,7 @@
 import { Router } from 'express';
+
 import { productosDao as api } from '../daos/index.js';
+
 const productosRouter = Router();
 
 
