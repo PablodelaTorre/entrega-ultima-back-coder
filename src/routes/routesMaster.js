@@ -8,7 +8,7 @@ import logoutRouter from "./routesLogout.js"
 
 const appRouter = Router()
 
-appRouter.use('/', appIndex)
+appRouter.use('/',appIndex)
 appRouter.use('/productos', productosRouter)
 appRouter.use('/carritos',carritosRouter)
 appRouter.use('/login',loginRouter)

@@ -1,5 +1,7 @@
 import express from "express"
 import multer from 'multer'
+import { Server } from 'socket.io'
+import http from 'http'
 import routesMaster from './src/routes/routesMaster.js'
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,7 +9,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import { connectMongoDB } from "./src/config/configMongoDB.js";
 
-const app = express()
+export const app = express()
+
+const httpServer = http.createServer(app)
+const io = new Server(httpServer)
 
 app.use(multer({
     dest:__dirname+"/public/files",
@@ -21,10 +26,25 @@ app.use('/',routesMaster)
 app.set('views','./src/views')
 app.set('view engine','ejs')
 
+//-------------------------------------------------- Socket io -----------------------------------------------
+
+export const mensajes = []
+
+io.on('connection',(socket)=>{
+    console.log('nuevo cliente conectado', socket.id)
+    socket.emit('mensajes', mensajes)
+
+    socket.on('newMessage', mensaje => {
+        mensajes.push(mensaje)
+        io.sockets.emit('mensajes',mensajes)
+    })
+})
+
+
 connectMongoDB();
 
 const PORT = process.env.PORT || 8080
 
-app.listen(PORT,()=>{
-    console.log(`Escuchando al puerto ${PORT}`)
+const server = httpServer.listen(PORT, () => {
+    console.log(`servidor escuchando en el puerto ${PORT}`)
 })

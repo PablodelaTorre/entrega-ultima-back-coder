@@ -35,21 +35,6 @@ buttonMensajes.addEventListener('click',(e) => {
     }   
 })
 
-
-socket.on('productos', (productos) => {
-    tablaProducts.innerHTML = productos.map(p => {
-        return(
-            `   
-                <tr class="filas">
-                    <th class="columnas">${p.titulo}</th>
-                    <th class="columnas">${p.precio}</th>
-                    <th class="columnas">${p.foto}</th>
-                </tr>
-            `
-    )
-    }).join(" ")
-})
-
 socket.on('mensajes', (mensajes) => {
     mostrarMensajes.innerHTML = mensajes.map(m => {
         return (
