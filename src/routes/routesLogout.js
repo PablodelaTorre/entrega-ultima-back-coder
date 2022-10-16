@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { destruirSesion } from "../controllers/logout.js";
+import { destruirSesion } from '../controllers/logout.js'
 
 const router = Router();
 
 router.get("/",async (req, res) => {
     console.log(`${req.url}`)
     console.log(`${req.method}`)
+    destruirSesion()
     res.render("./partials/logout", { });
 });
 

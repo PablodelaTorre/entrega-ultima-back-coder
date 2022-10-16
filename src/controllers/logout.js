@@ -1,6 +1,5 @@
 import localStorage from "localstorage"
 
-export function destruirSesion(){
+export function destruirSesion(res){
     localStorage.removeItem("token")
-    res.render("./partials/login")
 }
