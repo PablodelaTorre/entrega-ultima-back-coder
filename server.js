@@ -9,14 +9,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import "./src/config/passport-local.js";
-import session from "express-session";
-import passport from "passport";
-import MongoStore from "connect-mongo";
 import { connectMongoDB } from "./src/config/configMongoDB.js";
-
-const MONGO_USER = process.env.MONGO_USER;
-const MONGO_PASS = process.env.MONGO_PASS;
-const DB_NAME = process.env.DB_NAME;
 
 export const app = express()
 
@@ -34,21 +27,6 @@ app.use(express.static(__dirname + "/public"))
 app.use('/',routesMaster)
 app.set('views','./src/views')
 app.set('view engine','ejs')
-
-app.use(
-    session({
-        secret: "secret",
-        resave: true,
-        saveUninitialized: true,
-        store: MongoStore.create({
-            mongoUrl: `mongodb+srv://${MONGO_USER}:${MONGO_PASS}@cluster0.krjoq.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`,
-            ttl: 60 * 10, // 10 minutes
-        }),
-    })
-);
-  /** passport  */
-  app.use(passport.initialize()); // Inicializa passport
-  app.use(passport.session()); // Enlaza passport con la sesion
 
 //-------------------------------------------------- Socket io -----------------------------------------------
 export const mensajes = []

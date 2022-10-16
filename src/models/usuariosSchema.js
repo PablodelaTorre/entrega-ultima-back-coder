@@ -11,12 +11,16 @@ export const usuariosSchema = new mongoose.Schema({
         type: String,
         default: "",
     },
-    password: {
+    hashPassword: {
         type: String,
         default: "",
     },
-    imagen: {
-        type: String,
+    edad: {
+        type: Number,
         default: "",
     },
+    telefono: {
+        type: Number,
+        default: "",
+    }
 });

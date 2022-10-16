@@ -23,6 +23,15 @@ class MongoClass {
         }
     }
 
+    async findOne(email) {
+        try {
+        const one = await this.collection.findOne(email);
+        return one;
+        } catch (err) {
+        throw new Error(err);
+        }
+    }
+
     async create(doc) {
         console.log(doc);
         try {
