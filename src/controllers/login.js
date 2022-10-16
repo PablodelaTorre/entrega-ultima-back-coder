@@ -5,7 +5,6 @@ import localStorage from "localstorage"
 
 export async function loginUsuario(req,res) {
 
-    const usuarios = await api.getAll()
     const {email, password} = req.body
     const userBD = await api.findOne({email})
     
