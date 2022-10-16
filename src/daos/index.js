@@ -20,7 +20,6 @@ switch (process.env.DB_CONNECTION) {
             usuariosDao = new MongoDBUsuarios();
         });
         break;
-
     default:
         throw new Error("No se ha definido una conexión a la base de datos");
     break;

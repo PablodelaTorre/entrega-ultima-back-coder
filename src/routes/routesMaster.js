@@ -17,23 +17,6 @@ appRouter.use('/logout',logoutRouter)
 appRouter.use('/mensajes',mensajesRouter)
 appRouter.use('/registro',registroRouter)
 
-// appRouter.get('/',(req,res)=>{
-//     res.send("funcionando")
-// })
-
-// appRouter.get('/',(req,res) => {
-//     if(req.session.nombre) {
-//         logConsole.info(`${req.url}`)
-//         logConsole.info(`${req.method}`)
-//         res.render('index', {
-//             title:"Agregue un producto",
-//             nombre: req.session.nombre
-//         })
-//     } else {
-//         res.redirect("/login");
-//     }
-// })
-
 appRouter.get('*', (req,res)=>{
     res.send(`URL inexistente -- ${req.url}`)
 })
